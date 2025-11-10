@@ -11,7 +11,3 @@ getRandomNumber(1, 100)
 const filename = 'index.txt';
 const content = "Hello roshni, welcome to Node.js!";
 
-writeToFile(filename, content);
-if (checkFileExists(filename)) {
-    readFromFile(filename);
-}
