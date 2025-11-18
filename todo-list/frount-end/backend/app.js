@@ -4,26 +4,31 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-app.use(cors());
+
+app.use(cors()); 
 app.use(express.json()); 
 
+
 let todos = [
-    { id: '1', text: 'Build the Backend code', completed: false },
-    { id: '2', text: 'Build the Frontend code', completed: false }
+    { id: '1', text: 'Finish Backend API', completed: false },
+    { id: '2', text: 'Connect Frontend to API', completed: false }
 ];
 let nextId = 3;
 
 
-// GET: Retrieve all To-Do items
+
+// GET 
 app.get('/todos', (req, res) => {
+    console.log('GET request received for all todos');
     res.json(todos);
 });
 
-// POST: Add a new To-Do item
+// POST
 app.post('/todos', (req, res) => {
     const newTodoText = req.body.text;
+    
     if (!newTodoText) {
-        return res.status(400).send({ error: 'Task text is required' });
+        return res.status(400).send({ error: 'Task text is required in the request body.' });
     }
 
     const newTodo = {
@@ -33,24 +38,29 @@ app.post('/todos', (req, res) => {
     };
 
     todos.push(newTodo);
-    res.status(201).json(newTodo);
+    console.log(`POST request: Added new task: ${newTodo.text}`);
+    res.status(201).json(newTodo); 
 });
 
-// DELETE
+// DELETE 
 app.delete('/todos/:id', (req, res) => {
     const idToDelete = req.params.id;
     const initialLength = todos.length;
     
+   
     todos = todos.filter(todo => todo.id !== idToDelete);
 
     if (todos.length < initialLength) {
+        console.log(`DELETE request: Removed task with ID: ${idToDelete}`);
         res.status(200).send({ message: 'Task deleted successfully' });
     } else {
-        res.status(404).send({ error: 'Task not found' });
+        res.status(404).send({ error: `Task with ID ${idToDelete} not found.` });
     }
 });
 
-// 3. Start the Server
-app.listen(PORT, () => {
-    console.log(` Server running at http://localhost:${PORT}`);
+
+
+app.listen(3000, () => {
+    console.log(` To-Do Backend API running at http://localhost:3000`);
+ 
 });
