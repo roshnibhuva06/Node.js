@@ -37,22 +37,8 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 
 🗄️ MongoDB / JSON-Server support
 
-📂 Folder Structure
+<img width="270" height="565" alt="image" src="https://github.com/user-attachments/assets/42d31eda-2e46-497b-8a6c-a86e52156215" />
 
-todo-fullstack/
-│
-├── backend/
-│   ├── db.json          
-│   ├── app.js           
-│   └── server.js        
-│
-├── frontend/
-│   ├── Todo.jsx         
-│   ├── App.jsx          
-│   ├── App.css         
-│   ├── main.jsx            
-│
-└── README.md   
 
 
 🎯 Future Enhancements 🔒 Add Login / JWT Auth  🌙 Dark Mode 📦 Move from JSON → MongoDB  🌍 Deploy Frontend to Vercel
