@@ -40,6 +40,7 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 
 
 📦 todo-fullstack
+
 ├── 📁 client                # React Frontend
 │   ├── 📁 public
 │   └── 📁 src
@@ -60,7 +61,6 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 │
 ├── README.md
 └── package.json
-
 
 
 
