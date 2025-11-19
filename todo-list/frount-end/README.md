@@ -13,28 +13,52 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 - 🧠 Beginner-friendly code structure  
 
 ---
-🧩 Features
+🔹 Frontend (React + Redux)
 
-Super clean UI
+⚛️ React functional components
 
-Add / Delete tasks
+🔄 Redux store for global state management
 
-Click to mark completed
+➕ Add new tasks
 
-Auto-refresh task list
+♻️ Update & delete tasks
 
-⚙️ Backend (Express API)
-▶️ Start Backend
+🎨 Responsive UI
 
-# cd backend
-# npm install
-# node server.js
+🔌 Connected with backend API
 
-🖥️ Frontend (React)
-▶️ Start Frontend
-# cd frontend
-# npm install
-# npm run dev
+🔹 Backend (Node.js + Express)
+
+🛠️ REST API endpoints
+
+📦 CRUD operations (Create, Read, Update, Delete)
+
+🌐 CORS enabled
+
+🗄️ MongoDB / JSON-Server support
+
+📦 todo-fullstack
+├── 📁 client                # React Frontend
+│   ├── 📁 public
+│   └── 📁 src
+│       ├── 📁 components    # UI Components
+│       ├── 📁 pages         # All Pages
+│       ├── 📁 redux         # Redux Store + Slices
+│       ├── 📁 assets        # Images, icons
+│       ├── App.js
+│       └── index.js
+│
+├── 📁 server                # Backend (Node + Express)
+│   ├── 📁 routes            # All API routes
+│   ├── 📁 controllers       # Controllers
+│   ├── 📁 models            # DB Models
+│   ├── 📁 config            # DB connection
+│   ├── server.js            # Main entry file
+│   └── package.json
+│
+├── README.md
+└── package.json
+
 
 🎯 Future Enhancements
 
@@ -51,5 +75,9 @@ Auto-refresh task list
 <p>This project is a great stepping stone for mastering full-stack development.
 Keep improving it, add new features, and build your developer portfolio stronger.
 Happy coding and keep creating amazing things! 🚀✨</p>
+
+#fullstack #todolist #mern #react #redux #nodejs #express #mongodb  
+#javascript #frontend #backend #webdevelopment #crud #project  
+#reactjs #reduxToolkit #expressjs #coding #opensource
 
 
