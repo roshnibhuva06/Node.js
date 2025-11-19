@@ -37,6 +37,8 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 
 🗄️ MongoDB / JSON-Server support
 
+
+
 📦 todo-fullstack
 ├── 📁 client                # React Frontend
 │   ├── 📁 public
@@ -60,15 +62,9 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 └── package.json
 
 
-🎯 Future Enhancements
 
-🔒 Add Login / JWT Auth
 
-🌙 Dark Mode
-
-📦 Move from JSON → MongoDB
-
-🌍 Deploy Frontend to Vercel
+🎯 Future Enhancements 🔒 Add Login / JWT Auth  🌙 Dark Mode 📦 Move from JSON → MongoDB  🌍 Deploy Frontend to Vercel
 
 🚀 Deploy Backend to Render
 
