@@ -1,0 +1,104 @@
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #afb9d0;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* Main Container */
+.container {
+  width: 420px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Area */
+.inputArea {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #d6dfff;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+.input:focus {
+  border-color: #4a6cf7;
+  outline: none;
+}
+
+.addBtn {
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.addBtn:hover {
+  background: #3455db;
+}
+
+/* To-Do List */
+.list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.listItem {
+  background: #f7f9ff;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border-left: 4px solid #4a6cf7;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s ease;
+}
+
+.listItem:hover {
+  transform: translateX(5px);
+  background: #eef3ff;
+}
+
+/* Delete Button */
+.deleteBtn {
+  background: #ff4d4d;
+  border: none;
+  padding: 7px 12px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background: #d93636;
+}

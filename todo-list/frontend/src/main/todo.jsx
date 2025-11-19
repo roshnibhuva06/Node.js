@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import "./App.css";   
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
-
 
   const fetchTodos = async () => {
     try {
@@ -19,9 +19,8 @@ function App() {
     fetchTodos();
   }, []);
 
-  
   const addTodo = async () => {
-    if (task.trim() === "") return alert("Please enter a task!");
+    if (!task.trim()) return alert("Please enter a task!");
 
     try {
       const res = await fetch("http://localhost:3000/todos", {
@@ -38,7 +37,6 @@ function App() {
     }
   };
 
-  // Delete todo
   const deleteTodo = async (id) => {
     try {
       await fetch(`http://localhost:3000/todos/${id}`, {
@@ -52,25 +50,24 @@ function App() {
   };
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>React + Express To-Do App</h1>
+    <div className="container">
+      <h1 className="heading">React + Express To-Do App</h1>
 
-   
-      <div style={styles.inputArea}>
+      <div className="inputArea">
         <input
-          style={styles.input}
+          className="input"
           value={task}
           onChange={(e) => setTask(e.target.value)}
           placeholder="Enter your task..."
         />
-        <button style={styles.button} onClick={addTodo}>Add</button>
+        <button className="addBtn" onClick={addTodo}>Add</button>
       </div>
 
-      <ul style={styles.list}>
+      <ul className="list">
         {todos.map((todo) => (
-          <li key={todo.id} style={styles.listItem}>
+          <li key={todo.id} className="listItem">
             <span>{todo.text}</span>
-            <button style={styles.deleteBtn} onClick={() => deleteTodo(todo.id)}>
+            <button className="deleteBtn" onClick={() => deleteTodo(todo.id)}>
               Delete
             </button>
           </li>
@@ -79,4 +76,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
