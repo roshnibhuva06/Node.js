@@ -37,7 +37,8 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 
 🗄️ MongoDB / JSON-Server support
 
-<img width="1080" height="602" alt="image" src="https://github.com/user-attachments/assets/0e212475-039e-4d6a-86d3-0d14c93c7206" />
+<img width="1035" height="534" alt="image" src="https://github.com/user-attachments/assets/2a43a457-77f4-4b60-9a78-f680be76cb39" />
+
 
 
 
