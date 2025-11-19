@@ -37,31 +37,22 @@ This project demonstrates how to perform **CRUD operations** using API requests 
 
 🗄️ MongoDB / JSON-Server support
 
+📂 Folder Structure
 
-
-📦 todo-fullstack
-
-├── 📁 client                # React Frontend
-│   ├── 📁 public
-│   └── 📁 src
-│       ├── 📁 components    # UI Components
-│       ├── 📁 pages         # All Pages
-│       ├── 📁 redux         # Redux Store + Slices
-│       ├── 📁 assets        # Images, icons
-│       ├── App.js
-│       └── index.js
+todo-fullstack/
 │
-├── 📁 server                # Backend (Node + Express)
-│   ├── 📁 routes            # All API routes
-│   ├── 📁 controllers       # Controllers
-│   ├── 📁 models            # DB Models
-│   ├── 📁 config            # DB connection
-│   ├── server.js            # Main entry file
-│   └── package.json
+├── backend/
+│   ├── db.json          
+│   ├── app.js           
+│   └── server.js        
 │
-├── README.md
-└── package.json
-
+├── frontend/
+│   ├── Todo.jsx         
+│   ├── App.jsx          
+│   ├── App.css         
+│   ├── main.jsx            
+│
+└── README.md   
 
 
 🎯 Future Enhancements 🔒 Add Login / JWT Auth  🌙 Dark Mode 📦 Move from JSON → MongoDB  🌍 Deploy Frontend to Vercel
