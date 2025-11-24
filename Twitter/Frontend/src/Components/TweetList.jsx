@@ -2,14 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTweet } from "../Features/tweetSlice";
 
 export default function TweetList({ startEdit }) {
-  const tweets = useSelector(state => state.tweets.list);
+  const tweets = useSelector((state) => state.tweets.list);
   const dispatch = useDispatch();
 
   return (
     <div>
-      {tweets.map(t => (
-        <div className="tweet-card" key={t.id}>
-          <strong>@{t.username}</strong>
+      {tweets.map((t) => (
+        <div key={t.id} className="tweet-card">
+          <strong>@{t.username || "Guest"}</strong>
           <p>{t.tweet}</p>
           <small>{new Date(t.createdAt).toLocaleString()}</small>
 

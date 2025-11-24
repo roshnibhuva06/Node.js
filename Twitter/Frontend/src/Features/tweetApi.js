@@ -1,39 +1,37 @@
-const API_URL = "http://localhost:5000/api/tweets";
+const API_URL = "http://localhost:5000/tweets";
 
-// GET All
+// GET ALL
 export const fetchTweetsAPI = async () => {
   const res = await fetch(API_URL);
-  if (!res.ok) throw new Error("GET failed");
-  return res.json(); 
+  if (!res.ok) throw new Error("Failed to fetch tweets");
+  return res.json();
 };
 
-// CREATE
+// ADD TWEET
 export const addTweetAPI = async (data) => {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if (!res.ok) throw new Error("POST failed");
+  if (!res.ok) throw new Error("Failed to add tweet");
   return res.json();
 };
 
-// UPDATE
+// UPDATE TWEET
 export const updateTweetAPI = async (id, data) => {
   const res = await fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if (!res.ok) throw new Error("PUT failed");
+  if (!res.ok) throw new Error("Failed to update tweet");
   return res.json();
 };
 
-// DELETE
+// DELETE TWEET
 export const deleteTweetAPI = async (id) => {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
-  if (!res.ok) throw new Error("DELETE failed");
+  const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+  if (!res.ok) throw new Error("Failed to delete tweet");
   return id;
 };
