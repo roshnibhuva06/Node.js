@@ -4,45 +4,59 @@ import { addTweet, updateTweet } from "../Features/tweetSlice";
 
 export default function TweetForm({ editTweetData, clearEdit }) {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState(editTweetData?.username || "");
-  const [tweet, setTweet] = useState(editTweetData?.tweet || "");
+
+  const [form, setForm] = useState({
+    username: "",
+    tweet: "",
+    profile: "",
+  });
 
   useEffect(() => {
     if (editTweetData) {
-      setUsername(editTweetData.username);
-      setTweet(editTweetData.tweet);
+      setForm({
+        username: editTweetData.username,
+        tweet: editTweetData.tweet,
+        profile: editTweetData.profile || "",
+      });
     }
   }, [editTweetData]);
 
-  const handleSubmit = () => {
-    if (!tweet.trim()) return;
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    if (editTweetData) {
-      dispatch(updateTweet({ id: editTweetData.id, tweet }));
-      clearEdit();
-    } else {
-      dispatch(addTweet({ username, tweet }));
+    if (!form.username || !form.tweet) {
+      alert("Username & Tweet required!");
+      return;
     }
 
-    setTweet("");
-    setUsername("");
+    if (editTweetData) {
+      dispatch(updateTweet({ id: editTweetData.id, data: form }));
+      clearEdit();
+    } else {
+      dispatch(addTweet(form));
+    }
+
+    setForm({ username: "", tweet: "", profile: "" });
   };
 
   return (
-    <div className="tweet-box">
+    <form onSubmit={handleSubmit} className="tweet-form">
       <input
+        type="text"
         placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={form.username}
+        onChange={(e) => setForm({ ...form, username: e.target.value })}
       />
+
       <textarea
-        placeholder="What's happening?"
-        value={tweet}
-        onChange={(e) => setTweet(e.target.value)}
+        placeholder="Write a tweet..."
+        value={form.tweet}
+        onChange={(e) => setForm({ ...form, tweet: e.target.value })}
       />
-      <button onClick={handleSubmit}>
-        {editTweetData ? "Update Tweet" : "Tweet"}
+
+      <button type="submit" className="tweet-button">
+        {editTweetData ? "Update Tweet" : "Add Tweet"}
       </button>
-    </div>
+    </form>
   );
 }

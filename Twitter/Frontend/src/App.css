@@ -1,344 +1,163 @@
-/* General Styling & Variables (Light Mode) */
-:root {
-  --primary-color: #1DA1F2; /* Twitter Blue */
-  --secondary-color: #000;
-  --bg-color: #eae1e1; /* White Background */
-  --text-color: #111827; /* Dark Text */
-  --border-color: #c2c2c2ab; /* Light Border */
-  --hover-bg: #E8F5FE; /* Light Blue Hover */
-  --card-bg: #ffffff; /* Off-white for boxes */
-  --red-bird: #EF3E41; /* Cardinal red */
-  --light-gray-text: #6B7280; /* Gray for secondary text */
-}
-
+/* ========== GLOBAL ========== */
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
+  background: #f5f8fa; /* light white-blue like Twitter */
+  font-family: Arial, sans-serif;
 }
 
-/* --- LAYOUT: App.js Structure --- */
 .layout {
-  display: flex;
-  max-width: 1400px;
-  margin: 0 auto;
-  min-height: 100vh;
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 250px auto 300px;
+  height: 100vh;
 }
 
+/* ========== LEFT SIDEBAR ========== */
 .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e1e8ed;
   padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Left Sidebar (Navigation) */
-.layout > .sidebar:first-child {
-  width: 250px;
-  border-right: 1px solid var(--border-color);
   position: sticky;
   top: 0;
-  align-self: flex-start;
-}
-
-/* Right Sidebar (Trends/Search) */
-.right-sidebar {
-  width: 350px;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-  padding-top: 10px;
-}
-
-.main {
-  flex: 1;
-  border-right: 1px solid var(--border-color);
-  min-width: 600px;
-}
-
-/* --- LEFT SIDEBAR (Navigation) STYLES --- */
-.cardinal-bird-icon {
-  color: var(--red-bird);
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  padding: 5px;
-  width: fit-content;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.cardinal-bird-icon:hover {
-  background-color: var(--hover-bg);
+  height: 100vh;
 }
 
 .nav-item {
-  margin: 0;
-  padding: 12px 15px;
+  font-size: 18px;
+  margin: 18px 0;
   cursor: pointer;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  font-size: 1.15rem;
-  font-weight: 500;
-  transition: background-color 0.2s;
-  width: fit-content;
-  margin-bottom: 5px;
-  color: var(--text-color);
+  padding: 8px;
+  border-radius: 25px;
+}
+
+.nav-item.active {
+  font-weight: bold;
+  color: #1da1f2;
 }
 
 .nav-item:hover {
-  background-color: var(--hover-bg);
+  background: #e8f5fe;
+  color: #1da1f2;
 }
 
-/* Active 'Home' link styling */
-.nav-item.active {
-  font-weight: 700;
-}
-
-.nav-item::before {
-  margin-right: 15px;
-  font-size: 1.5rem;
-}
-
-/* Tweet Button (Left Sidebar) */
 .tweet-button-sidebar {
-  width: 90%;
-  padding: 15px 0;
-  margin-top: 25px;
-  background-color: var(--primary-color);
-  color: #fff; /* White text on blue button */
+  background: #1da1f2;
   border: none;
-  border-radius: 9999px;
-  font-weight: 700;
-  font-size: 1.1rem;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 16px;
+  margin-top: 20px;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .tweet-button-sidebar:hover {
-  background-color: var(--hover-bg);
-  filter: brightness(95%);
+  background: #0d8ae5;
 }
 
-/* --- MIDDLE FEED STYLES (TweetForm, TweetList) --- */
+/* ========== MIDDLE FEED ========== */
+.main {
+  border-right: 1px solid #e1e8ed;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
 .main-header {
-  padding: 15px;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  border-bottom: 1px solid var(--border-color);
+  padding: 15px;
+  border-bottom: 1px solid #e1e8ed;
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for sticky header */
   z-index: 10;
 }
 
-/* Tweet Form Styling (TweetForm.js) */
-.tweet-box {
-  padding: 15px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.tweet-box input,
-.tweet-box textarea {
-  width: 100%;
-  box-sizing: border-box;
-  background-color: transparent;
-  border: none;
-  color: var(--text-color);
-  padding: 10px 0;
-  font-size: 1.1rem;
-  resize: none;
-  outline: none;
-  margin-bottom: 10px;
-}
-
-.tweet-box input::placeholder,
-.tweet-box textarea::placeholder {
-  color: var(--light-gray-text);
-}
-
-.tweet-box button {
-  float: right;
-  padding: 8px 18px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 9999px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.tweet-box button:hover {
-  background-color: var(--hover-bg);
-  filter: brightness(95%);
-}
-
-.tweet-box::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Tweet Card Styling (TweetList.js) */
-.tweet-card {
-  padding: 15px;
-  border-bottom: 1px solid var(--border-color);
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* Tweet Form */
+.tweet-form {
   display: flex;
+  padding: 15px;
+  background: white;
+  border-bottom: 1px solid #e1e8ed;
   gap: 10px;
 }
-
-.tweet-card:hover {
-  background-color: var(--card-bg);
+.tweet-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #dfe6eb;
 }
 
-.tweet-card strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 5px;
+/* Tweet Card */
+.tweet-card {
+  background: #ffffff;
+  padding: 15px;
+  border-bottom: 1px solid #e6ecf0;
 }
 
-.tweet-card p {
-  margin: 0 0 10px 0;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.tweet-card small {
-  color: var(--light-gray-text);
-  font-size: 0.8rem;
+.tweet-card img {
+  border-radius: 50%;
 }
 
 .btn-area {
   margin-top: 10px;
-  display: flex;
-  gap: 10px;
 }
 
 .btn-area button {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  padding: 5px 10px;
-  border-radius: 9999px;
+  margin-right: 8px;
+  background: none;
+  border: none;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
 }
 
 .btn-area button:hover {
-  background-color: var(--hover-bg);
+  color: #1da1f2;
 }
 
-/* Delete button color for Light Mode */
-.btn-area button:last-child {
-  color: #E0245E;
-  border-color: #E0245E;
+/* ========== RIGHT SIDEBAR ========== */
+.right-sidebar {
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
-.btn-area button:last-child:hover {
-  background-color: rgba(224, 36, 94, 0.1);
-}
-
-/* --- RIGHT SIDEBAR STYLES (Trends) --- */
 .search-input {
-  width: 90%;
-  padding: 10px 15px;
-  background-color: var(--card-bg); /* Light background for search */
+  width: 100%;
+  padding: 12px;
+  border-radius: 20px;
   border: none;
-  border-radius: 9999px;
-  color: var(--text-color);
-  font-size: 1rem;
-  box-sizing: border-box;
+  background: #e6ecf0;
   margin-bottom: 20px;
-  margin-left: 5%;
 }
 
 .trends-container {
-  background-color: var(--card-bg);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 15px;
-  border: 1px solid var(--border-color); /* Added border for definition */
-}
-
-.trends-container h4 {
-  margin: 0;
+  background: white;
   padding: 15px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  border-bottom: 1px solid var(--border-color);
-  background-color: #F0F2F5; /* Slightly darker header */
+  border-radius: 15px;
+  border: 1px solid #e1e8ed;
 }
 
 .trend-item {
-  padding: 10px 15px;
-  margin: 0;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  font-size: 0.95rem;
+  margin: 5px 0;
+  color: #555;
 }
 
-.trend-item:hover {
-  background-color: var(--hover-bg);
-}
-
-.trend-item.hashtag {
+.hashtag {
   font-weight: bold;
-  color: var(--text-color);
-  padding-bottom: 2px;
-}
-
-.trend-item:nth-of-type(3) {
-  color: var(--light-gray-text);
-  font-size: 0.8rem;
-  padding-top: 2px;
-}
-
-.lunar-image-container {
-  padding: 15px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.lunar-image-container p {
-  font-weight: bold;
-  margin-bottom: 10px;
-  padding: 0;
-}
-
-.lunar-image-placeholder {
-  width: 100%;
-  height: 150px;
-  background-image: url('https://i.imgur.com/gTf9oT1.jpeg'); /* Using a slightly different light-mode image */
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  overflow: hidden;
+  color: black;
 }
 
 .show-more-button {
-  width: 90%;
-  padding: 10px 0;
-  margin: 15px 5%;
-  background-color: transparent;
-  color: var(--primary-color);
+  margin-top: 10px;
+  background: none;
   border: none;
-  font-weight: 500;
-  font-size: 1rem;
+  color: #1da1f2;
   cursor: pointer;
-  transition: background-color 0.2s;
-  border-radius: 9999px;
 }
 
 .show-more-button:hover {
-  background-color: var(--hover-bg);
+  text-decoration: underline;
 }

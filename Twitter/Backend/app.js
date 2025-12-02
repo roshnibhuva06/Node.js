@@ -39,13 +39,21 @@ app.post("/tweets", (req, res) => {
   res.status(201).json(newTweet);
 });
 
+
 // UPDATE
 app.put("/tweets/:id", (req, res) => {
   const tweets = readTweets();
   const id = Number(req.params.id);
+
   const idx = tweets.findIndex((t) => t.id === id);
-  if (idx === -1) return res.status(404).json({ error: "Tweet not found" });
-  tweets[idx].tweet = req.body.tweet.trim();
+  if (idx === -1) return res.status(404).json({ error: "Not found" });
+
+  tweets[idx] = {
+    ...tweets[idx],
+    ...req.body,
+    edited: true,
+  };
+
   saveTweets(tweets);
   res.json(tweets[idx]);
 });
@@ -54,8 +62,10 @@ app.put("/tweets/:id", (req, res) => {
 app.delete("/tweets/:id", (req, res) => {
   let tweets = readTweets();
   const id = Number(req.params.id);
+
   tweets = tweets.filter((t) => t.id !== id);
   saveTweets(tweets);
+
   res.sendStatus(204);
 });
 
