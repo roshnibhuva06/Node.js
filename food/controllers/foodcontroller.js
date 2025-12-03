@@ -41,7 +41,7 @@ export const updateFood = async (req, res) => {
     }
 };
 
-// Delete Food
+// Delete FOOD
 export const deleteFood = async (req, res) => {
     try {
         await Food.findByIdAndDelete(req.params.id);
