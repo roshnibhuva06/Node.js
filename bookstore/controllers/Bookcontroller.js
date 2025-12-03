@@ -40,3 +40,23 @@ export const updateFood = async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 };
+// Delete Food
+export const deleteFood = async (req, res) => {
+    try {
+        const deletedFood = await Food.findByIdAndDelete(req.params.id);
+
+        if (!deletedFood) {
+            return res.status(404).json({ message: "Food Not Found" });
+        }
+
+        res.status(200).json({
+            message: "Food Deleted Successfully",
+            food: deletedFood,
+        });
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+
+
