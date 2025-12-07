@@ -19,8 +19,8 @@ export default function App() {
         <header className="d-flex justify-content-between align-items-center mb-4">
           <h1 className="h3">Movie Management</h1>
           <div>
-            <button className="btn btn-primary me-2" onClick={() => { setPage("add"); setEditingMovie(null); }}>+ Add Movie</button>
-            <button className="btn btn-outline-secondary" onClick={() => setPage("list")}>Movie List</button>
+            <button className="AddMovie" onClick={() => { setPage("add"); setEditingMovie(null); }}>+ Add Movie</button>
+            <button className="Movie-List" onClick={() => setPage("list")}>Movie List</button>
           </div>
         </header>
 

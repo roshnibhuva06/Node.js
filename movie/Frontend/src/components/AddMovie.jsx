@@ -57,13 +57,13 @@ export default function AddMovie({ onDone }) {
         <input className="form-control" value={form.releaseYear} onChange={e => setForm({...form, releaseYear: e.target.value})} />
       </div>
       <div className="mb-3">
-        <label className="form-label">Poster Image (jpg, png)</label>
+        <label className="form-label">Poster Image (jpg, png, gif)</label>
         <input type="file" accept="image/*" className="form-control" onChange={e => setPoster(e.target.files[0])} />
       </div>
 
       <div>
-        <button className="btn btn-primary" disabled={submitting} type="submit">Add Movie</button>
-        <button type="button" className="btn btn-link" onClick={onDone}>Cancel</button>
+        <button className="add-movie" disabled={submitting} type="submit">Add Movie</button>
+        <button type="button" className="cancell" onClick={onDone}>Cancel</button>
       </div>
     </form>
   );

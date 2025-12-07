@@ -51,8 +51,8 @@ export default function MovieList({ onEdit, onView }) {
           <input className="form-control" placeholder="Search by title..." value={q} onChange={e => setQ(e.target.value)} />
         </div>
         <div className="col-auto">
-          <button className="btn btn-secondary" type="submit">Search</button>
-          <button className="btn btn-outline-secondary ms-2" type="button" onClick={() => { setQ(""); fetchMovies(); }}>Reset</button>
+          <button className="search-button" type="submit">Search</button>
+          <button className="reset-button" type="button" onClick={() => { setQ(""); fetchMovies(); }}>Reset</button>
         </div>
       </form>
 
@@ -72,10 +72,10 @@ export default function MovieList({ onEdit, onView }) {
                   <p className="card-text text-truncate">{movie.description}</p>
                   <div className="mt-auto d-flex justify-content-between">
                     <div>
-                      <button className="btn btn-sm btn-outline-primary me-2" onClick={() => onView(movie)}>View</button>
-                      <button className="btn btn-sm btn-outline-secondary" onClick={() => onEdit(movie)}>Edit</button>
+                      <button className="view-button" onClick={() => onView(movie)}>View</button>
+                      <button className="edit-button" onClick={() => onEdit(movie)}>Edit</button>
                     </div>
-                    <button className="btn btn-sm btn-danger" onClick={() => handleDelete(movie._id)}>Delete</button>
+                    <button className="delete-button" onClick={() => handleDelete(movie._id)}>Delete</button>
                   </div>
                 </div>
               </div>
