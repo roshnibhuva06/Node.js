@@ -13,13 +13,13 @@ export const addFood = async (req, res) => {
     }
 };
 
-// Get Food
+// Get All Food
 export const getFood = async (req, res) => {
     try {
         const foods = await Food.find();
         res.status(200).json({ foods });
     } catch (err) {
-        res.status(400).json({ error: err.message });
+        res.status(500).json({ error: err.message });
     }
 };
 
@@ -31,7 +31,6 @@ export const updateFood = async (req, res) => {
             req.body,
             { new: true }
         );
-
         res.status(200).json({
             message: "Food Updated Successfully",
             food: updatedFood,
@@ -41,7 +40,7 @@ export const updateFood = async (req, res) => {
     }
 };
 
-// Delete FOOD
+// Delete Food
 export const deleteFood = async (req, res) => {
     try {
         await Food.findByIdAndDelete(req.params.id);
