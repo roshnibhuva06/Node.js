@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import MovieList from "./components/MovieList";
+import AddMovie from "./components/AddMovie";
+import EditMovie from "./components/EditMovie";
+import MovieDetails from "./components/MovieDetails";
 
-function App() {
-  const [count, setCount] = useState(0)
+const API_BASE = "http://localhost:5000/api";
+
+export const ApiContext = React.createContext({ base: API_BASE });
+
+export default function App() {
+  const [page, setPage] = useState("list");
+  const [editingMovie, setEditingMovie] = useState(null);
+  const [viewingMovie, setViewingMovie] = useState(null);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <ApiContext.Provider value={{ base: API_BASE }}>
+      <div className="container py-4">
+        <header className="d-flex justify-content-between align-items-center mb-4">
+          <h1 className="h3">Movie Management</h1>
+          <div>
+            <button className="btn btn-primary me-2" onClick={() => { setPage("add"); setEditingMovie(null); }}>+ Add Movie</button>
+            <button className="btn btn-outline-secondary" onClick={() => setPage("list")}>Movie List</button>
+          </div>
+        </header>
 
-export default App
+        <main>
+          {page === "list" && (
+            <MovieList
+              onEdit={(m) => { setEditingMovie(m); setPage("edit"); }}
+              onView={(m) => { setViewingMovie(m); setPage("details"); }}
+            />
+          )}
+
+          {page === "add" && <AddMovie onDone={() => setPage("list")} />}
+          {page === "edit" && editingMovie && <EditMovie movie={editingMovie} onDone={() => setPage("list")} />}
+          {page === "details" && viewingMovie && <MovieDetails movie={viewingMovie} onBack={() => setPage("list")} />}
+        </main>
+      </div>
+    </ApiContext.Provider>
+  );
+}
