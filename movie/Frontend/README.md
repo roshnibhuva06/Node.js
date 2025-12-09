@@ -1,16 +1,107 @@
-# React + Vite
+<h1>🎬 Movie Management System</h1>
+A complete Full-Stack Movie Management Application built with Express.js, MongoDB, Mongoose, Multer, and a responsive Frontend UI.
+Easily add, update, delete, search, and display movies along with poster images! 🍿✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Project Overview
 
-Currently, two official plugins are available:
+This project is designed to manage movies in a structured and efficient way.
+Admins can add movies with poster upload, store them in a database, and manage them through a clean user interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧩 Features
+🔥 Frontend
 
-## React Compiler
+🎨 Responsive UI (HTML + CSS + JavaScript)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🖼️ Display movie posters
 
-## Expanding the ESLint configuration
+🔍 Search movies by title
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✏️ Edit movie details
+
+❌ Delete movie with confirmation
+
+📱 Mobile-friendly layout
+
+⚙️ Backend
+
+🛠️ Built using Node.js + Express.js
+
+🗄️ MongoDB + Mongoose for database
+
+📤 Multer for uploading movie poster images
+
+🔗 REST APIs for CRUD operations
+
+🧹 Auto-delete old posters when updating/deleting movies
+
+🛡️ Error handling and validation
+
+📸 Movie Poster Upload
+
+Upload and store movie posters easily with Multer.
+Files are saved in /uploads and automatically deleted when needed. 🗑️✨
+
+```markdown
+movie/
+│
+├── Backend/                          
+│   ├── config/
+│   │   └── db.js                     
+│   │
+│   ├── controllers/
+│   │   └── movieController.js        
+│   │
+│   ├── middleware/
+│   │   └── upload.js                 
+│   │
+│   ├── models/
+│   │   └── Movie.js                 
+│   │
+│   ├── routes/
+│   │   └── movieroutes.js         
+│   │
+│   ├── uploads/                      
+│   ├── node_modules/
+│   ├── server.js                     
+│   ├── .env                          
+│   ├── package.json
+│   └── package-lock.json
+│
+│
+├── Frontend/                         🎨 Frontend (React + Vite)
+│   ├── public/
+│   │   └── index.html                🏠 Main HTML file
+│   │
+│   ├── src/
+│   │   ├── components/               🧩 Reusable Components
+│   │   │   ├── AddMovie.jsx
+│   │   │   ├── EditMovie.jsx
+│   │   │   ├── MovieDetails.jsx
+│   │   │   └── MovieList.jsx
+│   │   │
+│   │   ├── App.jsx                   
+│   │   ├── App.css                   🎨 Global Styles
+│   │   └── main.jsx                  
+│   │
+│   ├── node_modules/
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vite.config.js               
+│
+└── README.md                         
+
+```
+
+📝 API Endpoints
+
+➕ POST /api/movies — Add new movie
+
+📥 GET /api/movies — Get all movies
+
+🔎 GET /api/movies/:id — Get single movie
+
+✏️ PUT /api/movies/:id — Update movie
+
+❌ DELETE /api/movies/:id — Delete movie + poster
+
+video:https://drive.google.com/file/d/1m4MiZZCqsLYsxv0mRo9ihsBYSarClzbc/view?usp=sharing
