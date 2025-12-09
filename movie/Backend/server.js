@@ -8,6 +8,7 @@ import connectDB from "./config/db.js";
 import moviesRouter from "./routes/movieroutes.js";
 
 // ENV variables
+
 const PORT = process.env.PORT || 5000;
 const IMAGE_PATH = process.env.IMAGE_PATH || "uploads";
 
