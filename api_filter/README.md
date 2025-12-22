@@ -4,19 +4,19 @@ This project is designed as a practical task for students to understand filterin
 
 🚀 Project Objective
 
-The goal of this project is to help students learn how to:
+● The goal of this project is to help students learn how to:
 
-Build RESTful APIs using Express
+● Build RESTful APIs using Express
 
-Connect MongoDB using Mongoose
+● Connect MongoDB using Mongoose
 
-Apply filters using query parameters
+● Apply filters using query parameters
 
-Implement search, sort, pagination
+● Implement search, sort, pagination
 
-Handle error cases
+● Handle error cases
 
-Test APIs using Postman
+● Test APIs using Postman
 
 🧰 Tech Stack
 
@@ -30,19 +30,19 @@ Test APIs using Postman
 
 🎓 Learning Outcomes
 
-Students will learn:
+● Students will learn:
 
-Express routing
+● Express routing
 
-MongoDB queries
+● MongoDB queries
 
-Query parameters
+● Query parameters
 
-Filtering & searching
+● Filtering & searching
 
-Pagination logic
+● Pagination logic
 
-Clean backend structure
+● Clean backend structure
 
 Real-world API patterns
 
