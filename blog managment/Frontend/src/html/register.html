@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+
+<h2>Register</h2>
+
+<form id="registerForm">
+  <input type="text" placeholder="Name" id="name"><br><br>
+  <input type="email" placeholder="Email" id="email"><br><br>
+  <input type="password" placeholder="Password" id="password"><br><br>
+  <button>Register</button>
+</form>
+
+<script>
+const API = "http://localhost:5000/api";
+
+// Get input elements
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+document.getElementById("registerForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch(`${API}/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        password: password.value
+      })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert(data.message || "Registered successfully!");
+      window.location.href = "login.html";
+    } else {
+      alert(data.message || "Something went wrong!");
+    }
+  } catch (err) {
+    alert("Server error: " + err.message);
+  }
+});
+</script>
+
+</body>
+</html>
