@@ -27,19 +27,19 @@ Backend
 📡 API Endpoints
 🔑 Auth Routes
 ```txt
-Method	Endpoint	Description
-POST	/api/auth/register	Register user
-POST	/api/auth/login	Login user
-GET	/api/auth/logout	Logout user
+Method	           Endpoint	                       Description
+POST	           /api/auth/register	               Register user
+POST	          /api/auth/login	                   Login user
+GET	            /api/auth/logout	                  Logout user
 
 ```
 📝 Blog Routes
 
-```markdown
-Method	Endpoint	Description
-GET	/api/blogs	Get all blogs
-POST	/api/blogs	Create blog
-DELETE	/api/blogs/:id	Delete blog
+```txt
+Method	           Endpoint	                        Description
+GET	              /api/blogs	                       Get all blogs
+POST	            /api/blogs	                       Create blog
+DELETE	          /api/blogs/:id	                   Delete blog
 ```
 📌 Project Completion Status
 
