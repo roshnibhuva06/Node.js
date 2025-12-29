@@ -29,8 +29,8 @@ Backend
 ```txt
 Method	           Endpoint	                       Description
 POST	           /api/auth/register	               Register user
-POST	          /api/auth/login	                   Login user
-GET	            /api/auth/logout	                  Logout user
+POST	           /api/auth/login	                 Login user
+GET	             /api/auth/logout	                 Logout user
 
 ```
 📝 Blog Routes
