@@ -26,7 +26,7 @@ Backend
 
 📡 API Endpoints
 🔑 Auth Routes
-```markdown
+```txt
 Method	Endpoint	Description
 POST	/api/auth/register	Register user
 POST	/api/auth/login	Login user
