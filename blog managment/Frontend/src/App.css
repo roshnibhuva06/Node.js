@@ -39,3 +39,9 @@ nav a {
   width: 100%;
   margin-top: 10px;
 }
+.blog h2 {
+  margin-bottom: 10px;
+}
+.blog p {
+  color: #555;
+}
