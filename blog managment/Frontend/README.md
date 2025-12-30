@@ -18,7 +18,21 @@ Blog Management System ek web-based backend + frontend project hai jisme users r
 🧩 RESTful APIs banana
 
 🔒 Protected routes ko secure karna
+---
 
+## 🛠 Tech Stack
+
+| Technology | Usage |
+|----------|------|
+| Node.js | Backend Runtime |
+| Express.js | Backend Framework |
+| MongoDB | Database |
+| Mongoose | ODM |
+| Multer | Image Upload |
+| JWT + Cookies | Authentication |
+| HTML/CSS/JS | Frontend |
+
+---
 ⚙️ Tech Stack Used
 Backend
 ---
