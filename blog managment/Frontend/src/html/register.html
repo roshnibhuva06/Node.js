@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Register</title>
 </head>
 <body>
@@ -8,44 +9,60 @@
 <h2>Register</h2>
 
 <form id="registerForm">
-  <input type="text" placeholder="Name" id="name"><br><br>
-  <input type="email" placeholder="Email" id="email"><br><br>
-  <input type="password" placeholder="Password" id="password"><br><br>
-  <button>Register</button>
+  <input type="text" id="name" placeholder="Name" required />
+  <br><br>
+
+  <input type="email" id="email" placeholder="Email" required />
+  <br><br>
+
+  <input type="password" id="password" placeholder="Password" required />
+  <br><br>
+
+  <button type="submit">Register</button>
 </form>
 
 <script>
-const API = "http://localhost:5000/api";
+const API = "http://localhost:5000/api/auth";
 
-// Get input elements
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const form = document.getElementById("registerForm");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
 
-document.getElementById("registerForm").addEventListener("submit", async e => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // 🔴 Frontend validation
+  if (!nameInput.value || !emailInput.value || !passwordInput.value) {
+    alert("All fields are required");
+    return;
+  }
+
   try {
-    const res = await fetch(`${API}/auth/register`, {
+    const response = await fetch(`${API}/register`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        password: password.value
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        password: passwordInput.value
       })
     });
 
-    const data = await res.json();
+    const data = await response.json();
 
-    if (res.ok) {
-      alert(data.message || "Registered successfully!");
+    if (response.ok) {
+      alert(data.message || "User Registered Successfully");
+      form.reset();
       window.location.href = "login.html";
     } else {
-      alert(data.message || "Something went wrong!");
+      alert(data.message || "Registration failed");
     }
-  } catch (err) {
-    alert("Server error: " + err.message);
+  } catch (error) {
+    alert("Server not running or network error");
+    console.error(error);
   }
 });
 </script>

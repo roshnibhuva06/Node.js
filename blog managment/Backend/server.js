@@ -9,7 +9,7 @@ const app = express();
 
 // ---------- CORS Setup ----------
 app.use(cors({
-  origin: "http://localhost:5173", // Frontend ka URL/port
+  origin: "http://localhost:5173", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true 
 }));
