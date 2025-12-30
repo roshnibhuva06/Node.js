@@ -24,15 +24,25 @@ Backend
 
 🟢 Node.js ⚡ Express.js 🍃 MongoDB  🧬 Mongoose  📤 Multer  🍪 Cookie-Parser  🔐 bcryptjs
 
-📡 API Endpoints
-🔑 Auth Routes
-```txt
-Method	           Endpoint	                       Description
-POST	           /api/auth/register	               Register user
-POST	           /api/auth/login	                 Login user
-GET	             /api/auth/logout	                 Logout user
+---
 
-```
+## 📡 API Endpoints
+
+### 🔑 Authentication Routes
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | /api/auth/register | Register user |
+| POST | /api/auth/login | Login user |
+| GET  | /api/auth/logout | Logout user |
+
+### 📝 Blog Routes
+| Method | Endpoint | Description |
+|------|---------|------------|
+| GET | /api/blogs | Get all blogs |
+| POST | /api/blogs | Create blog |
+| DELETE | /api/blogs/:id | Delete blog |
+
+---
 📝 Blog Routes
 
 ```txt
