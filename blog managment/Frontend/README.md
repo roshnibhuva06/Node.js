@@ -4,7 +4,7 @@ Blog Management System ek web-based backend + frontend project hai jisme users r
 🔐 Authentication JWT ke bina, pure cookie-based hai.
 🖼 Blog ke sath image upload support hai (Multer use karke).
 📦 Saara data MongoDB me securely store hota hai.
-
+---
 🎯 Project Objectives
 
 🍪 Cookie-based authentication implement karna
@@ -21,7 +21,7 @@ Blog Management System ek web-based backend + frontend project hai jisme users r
 
 ⚙️ Tech Stack Used
 Backend
-
+---
 🟢 Node.js ⚡ Express.js 🍃 MongoDB  🧬 Mongoose  📤 Multer  🍪 Cookie-Parser  🔐 bcryptjs
 
 ---
@@ -43,14 +43,7 @@ Backend
 | DELETE | /api/blogs/:id | Delete blog |
 
 ---
-📝 Blog Routes
 
-```txt
-Method	           Endpoint	                        Description
-GET	              /api/blogs	                       Get all blogs
-POST	            /api/blogs	                       Create blog
-DELETE	          /api/blogs/:id	                   Delete blog
-```
 📌 Project Completion Status
 
 ✅ Cookie authentication working
