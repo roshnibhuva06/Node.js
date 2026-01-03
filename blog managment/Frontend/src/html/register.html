@@ -1,53 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Register</title>
+  <link rel="stylesheet" href="../App.css">
 </head>
 <body>
 
 <h2>Register</h2>
 
 <form id="registerForm">
-  <input type="text" placeholder="Name" id="name"><br><br>
-  <input type="email" placeholder="Email" id="email"><br><br>
-  <input type="password" placeholder="Password" id="password"><br><br>
-  <button>Register</button>
+  <input type="text" placeholder="Name" id="name" required><br><br>
+  <input type="email" placeholder="Email" id="email" required><br><br>
+  <input type="password" placeholder="Password" id="password" required><br><br>
+  <button type="submit">Register</button>
 </form>
 
 <script>
-const API = "http://localhost:5000/api";
+  const API = "http://localhost:5000/api";
 
-// Get input elements
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const form = document.getElementById("registerForm");
 
-document.getElementById("registerForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  try {
-    const res = await fetch(`${API}/auth/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        password: password.value
-      })
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      alert(data.message || "Registered successfully!");
-      window.location.href = "login.html";
-    } else {
-      alert(data.message || "Something went wrong!");
+    // Basic validation
+    if (!nameInput.value || !emailInput.value || !passwordInput.value) {
+      alert("❌ All fields are required");
+      return;
     }
-  } catch (err) {
-    alert("Server error: " + err.message);
-  }
-});
+
+    try {
+      const res = await fetch(`${API}/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: nameInput.value,
+          email: emailInput.value,
+          password: passwordInput.value
+        })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Registration failed");
+      }
+
+      alert("✅ " + data.message);
+      form.reset();
+      window.location.href = "login.html";
+
+    } catch (error) {
+      alert("❌ " + error.message);
+      console.error(error);
+    }
+  });
 </script>
 
 </body>

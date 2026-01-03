@@ -1,11 +1,26 @@
-const authMiddleware = (req, res, next) => {
-  const userId = req.cookies.userId;
+import User from "../models/User.js";
 
-  if (!userId) {
-    return res.status(401).json({ message: "Please login first" });
+const authMiddleware = async (req, res, next) => {
+  try {
+    const userId = req.cookies.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: "Please login first" });
+    }
+
+    // 🔍 Check user exists
+    const user = await User.findById(userId).select("_id");
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid user" });
+    }
+
+    req.user = { id: user._id };
+    next();
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Authentication failed" });
   }
-   req.user = { id: userId };
-  next();
 };
 
 export default authMiddleware;
