@@ -17,7 +17,7 @@ export default function App() {
     <ApiContext.Provider value={{ base: API_BASE }}>
       <div className="container py-4">
         <header className="d-flex justify-content-between align-items-center mb-4">
-          <h1 className="h3">Movie Management</h1>
+          <h1 className="h3">🎬 Movie Management</h1>
           <div>
             <button className="AddMovie" onClick={() => { setPage("add"); setEditingMovie(null); }}>+ Add Movie</button>
             <button className="Movie-List" onClick={() => setPage("list")}>Movie List</button>
