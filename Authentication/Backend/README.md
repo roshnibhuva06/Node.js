@@ -72,8 +72,7 @@ This project implements a **complete authentication flow** including signup, ema
 - **dotenv**
 - **Postman**
 
----
 
-## 📂 Project Structure
+
 
 
