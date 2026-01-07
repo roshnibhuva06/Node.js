@@ -8,7 +8,7 @@ export const register = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "Email & Password required" });
     }
 
     const userExist = await User.findOne({ email });
@@ -17,8 +17,11 @@ export const register = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+
+
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
+ 
     await User.create({
       email,
       password: hashedPassword,
@@ -26,14 +29,16 @@ export const register = async (req, res) => {
       isVerified: false,
     });
 
+
     await sendEmail(email, otp);
 
-    res.status(201).json({ message: "OTP sent to email" });
+    res.status(201).json({ message: "OTP sent to your email" });
   } catch (error) {
-    console.error("REGISTER ERROR:", error.message);
+    console.log("REGISTER ERROR:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 export const verifyOtp = async (req, res) => {
   try {
@@ -55,17 +60,18 @@ export const verifyOtp = async (req, res) => {
 
     res.json({ message: "Email verified successfully" });
   } catch (error) {
-    console.error("VERIFY OTP ERROR:", error.message);
+    console.log("VERIFY OTP ERROR:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "All fields required" });
+      return res.status(400).json({ message: "Email & Password required" });
     }
 
     const user = await User.findOne({ email });
@@ -74,31 +80,27 @@ export const login = async (req, res) => {
     }
 
     if (!user.isVerified) {
-      return res.status(401).json({ message: "Verify email first" });
+      return res.status(401).json({ message: "Please verify email first" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
-
-    if (!process.env.JWT_SECRET) {
-      return res.status(500).json({ message: "JWT secret missing" });
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) {
+      return res.status(401).json({ message: "Wrong password" });
     }
 
     const token = jwt.sign(
-      { id: user._id },
+      { userId: user._id },
       process.env.JWT_SECRET,
       { expiresIn: "1d" }
     );
 
-    res.json({ token });
+    res.json({ message: "Login successful", token });
   } catch (error) {
-    console.error("LOGIN ERROR:", error.message);
+    console.log("LOGIN ERROR:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
 
 export const home = (req, res) => {
-  res.json({ message: "Welcome to Home Page" });
+  res.json({ message: "Welcome to Home Page 🚀" });
 };
