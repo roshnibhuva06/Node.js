@@ -1,4 +1,4 @@
-# 🔐 Login System with OTP & JWT Authentication
+# 🔐 Login System with OTP 
 
 A secure **Login & Authentication System** built using **Node.js, Express.js, MongoDB** with **OTP-based email verification**, **JWT authentication**, and **password encryption**.
 
