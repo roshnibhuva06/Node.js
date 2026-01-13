@@ -104,3 +104,4 @@ export const login = async (req, res) => {
 export const home = (req, res) => {
   res.json({ message: "Welcome to Home Page 🚀" });
 };
+
