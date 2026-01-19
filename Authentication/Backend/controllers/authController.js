@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import sendEmail from "../utils/sendEmail.js";
 
+
 export const register = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -104,4 +105,5 @@ export const login = async (req, res) => {
 export const home = (req, res) => {
   res.json({ message: "Welcome to Home Page 🚀" });
 };
+
 
