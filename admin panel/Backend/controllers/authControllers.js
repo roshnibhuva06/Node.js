@@ -1,10 +1,8 @@
-import { AuthCollection } from '../models/auth_model.js';
+import { AuthCollection } from '../models/authmodel.js';
 import bcrypt from 'bcrypt';
-import { otpSender } from '../services/otp_services.js';
-import { OtpCollection } from '../models/otp_models.js';
+import { OtpCollection } from '../models/otpmodels.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { UserCollection } from '../models/user_model.js';
 
 dotenv.config();
 
