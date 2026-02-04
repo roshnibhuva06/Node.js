@@ -42,3 +42,4 @@ const authSchema = new mongoose.Schema({
 
 export const AuthCollection = mongoose.model("auth", authSchema);
 
+
