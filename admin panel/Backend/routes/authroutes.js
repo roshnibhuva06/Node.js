@@ -1,31 +1,31 @@
 import express from "express";
 
 import {
-  changePassword,
-  forgetPassword,
-  getCurrentUser,
+  signup,
   signin,
   signout,
-  signup,
   verifyOTP,
-  verifyOtpForCreatePassword
-} from "../controllers/auth_controller.js";
+  changePassword,
+  forgetPassword,
+  verifyOtpForCreatePassword,
+  getCurrentUser
+} from "../controllers/authControllers.js";
 
 import {
+  validateSignupFields,
   validateSigninFields,
-  validateOtpFields,
-  validateSignupFields
-} from "../middlewares/auth_middleware.js";
+  validateOtpFields
+} from "../Middlewares/authMiddlewares.js";
 
-const auth_routes = express.Router();
-auth_routes.post("/signup", validateSignupFields, signup);
-auth_routes.post("/signin", validateSigninFields, signin);
-auth_routes.post("/signout", signout);
-auth_routes.post("/verify-otp", validateOtpFields, verifyOTP);
-auth_routes.post("/change-password", changePassword);
-auth_routes.post("/forget-password", forgetPassword);
+const router = express.Router();
 
-auth_routes.post("/verify-forget-password", verifyOtpForCreatePassword);
-auth_routes.get("/get-current-user", getCurrentUser);
+router.post("/signup", validateSignupFields, signup);
+router.post("/signin", validateSigninFields, signin);
+router.post("/verify-otp", validateOtpFields, verifyOTP);
+router.post("/change-password", changePassword);
+router.post("/forget-password", forgetPassword);
+router.post("/reset-password", verifyOtpForCreatePassword);
+router.get("/current-user", getCurrentUser);
+router.post("/signout", signout);
 
-export default auth_routes;
+export default router;
