@@ -6,7 +6,6 @@ const Signin = () => {
     email: "",
     password: ""
   });
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -69,4 +68,5 @@ const Signin = () => {
 };
 
 export default Signin;
+
 
