@@ -1,0 +1,172 @@
+/* Page Background */
+.signin-page,
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #e3f2fd, #ffffff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Wrapper */
+.signin-wrapper,
+.signup-wrapper {
+  width: 900px;
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* LEFT PANEL */
+.welcome-panel {
+  width: 45%;
+  background: linear-gradient(135deg, #1e88e5, #42a5f5);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo */
+.logo {
+  width: 70px;
+  height: 70px;
+  background: white;
+  color: #1e88e5;
+  font-weight: bold;
+  font-size: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.welcome-panel h1 {
+  margin-bottom: 15px;
+}
+
+.welcome-panel p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* RIGHT PANEL */
+.form-panel {
+  width: 55%;
+  padding: 40px;
+}
+
+.form-panel h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.subtext {
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.subtext span {
+  color: #1e88e5;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Form Fields */
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.form-field input:focus {
+  border-color: #1e88e5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(30, 136, 229, 0.3);
+}
+
+/* Button */
+.signin-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1e88e5;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signin-btn:hover {
+  background: #1565c0;
+}
+
+/* Toast Message */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  animation: fadeIn 0.5s ease;
+}
+
+.toast.success {
+  background: #4caf50;
+}
+
+.toast.error {
+  background: #e53935;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .signin-wrapper,
+  .signup-wrapper {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .welcome-panel,
+  .form-panel {
+    width: 100%;
+  }
+
+  .welcome-panel {
+    text-align: center;
+  }
+}
+
