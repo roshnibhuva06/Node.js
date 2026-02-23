@@ -123,26 +123,10 @@ movie/
 
 ---
 
-## 🛠️ Installation Guide
-
-### 1️⃣ Clone Repository
-
-git clone https://github.com/your-username/movie-management-system.git  
-cd movie-management-system  
-
----
-
 ### 2️⃣ Backend Setup
 
 cd Backend  
 npm install  
-
-Create `.env` file inside Backend folder:
-
-PORT=5000  
-MONGO_URI=your_mongodb_connection_string  
-
-Start Backend Server:
 
 npm start  
 
