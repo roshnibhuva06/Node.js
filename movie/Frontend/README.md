@@ -1,107 +1,188 @@
-<h1>🎬 Movie Management System</h1>
-A complete Full-Stack Movie Management Application built with Express.js, MongoDB, Mongoose, Multer, and a responsive Frontend UI.
-Easily add, update, delete, search, and display movies along with poster images! 🍿✨
+# 🎬 Movie Management System
 
-🚀 Project Overview
+A complete **Full-Stack Movie Management Application** built using:
+
+> Node.js • Express.js • MongoDB • Mongoose • Multer • React.js (Vite)
+
+Easily **add, update, delete, search, and manage movies** along with poster image uploads. 🍿✨
+
+---
+
+## 🚀 Project Overview
 
 This project is designed to manage movies in a structured and efficient way.
-Admins can add movies with poster upload, store them in a database, and manage them through a clean user interface.
 
-🧩 Features
-🔥 Frontend
+Admins can:
+- Add new movies with poster upload
+- Edit movie details
+- Delete movies (with automatic poster removal)
+- Search movies by title
+- View all movies in a responsive UI
 
-🎨 Responsive UI (HTML + CSS + JavaScript)
+---
 
-🖼️ Display movie posters
+## 🧩 Features
 
-🔍 Search movies by title
+### 🎨 Frontend (React + Vite)
 
-✏️ Edit movie details
+- 📱 Fully Responsive UI
+- 🖼️ Display movie posters
+- 🔍 Search movies by title
+- ✏️ Edit movie details
+- ❌ Delete movie with confirmation
+- 📄 View movie details page
+- ⚡ Fast & clean design
 
-❌ Delete movie with confirmation
+---
 
-📱 Mobile-friendly layout
+### ⚙️ Backend (Node.js + Express)
 
-⚙️ Backend
+- 🛠️ RESTful API architecture
+- 🗄️ MongoDB + Mongoose database
+- 📤 Multer for image uploads
+- 🧹 Auto-delete old posters when updating/deleting
+- 🛡️ Error handling & validation
+- 🌍 CORS enabled
 
-🛠️ Built using Node.js + Express.js
+---
 
-🗄️ MongoDB + Mongoose for database
+## 🧩 Tech Stack
 
-📤 Multer for uploading movie poster images
+### 🔹 Frontend
+- React.js (Vite)
+- Axios
+- CSS3
 
-🔗 REST APIs for CRUD operations
+### 🔹 Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Multer
+- dotenv
 
-🧹 Auto-delete old posters when updating/deleting movies
+---
 
-🛡️ Error handling and validation
+## 📂 Project Structure
 
-📸 Movie Poster Upload
-
-Upload and store movie posters easily with Multer.
-Files are saved in /uploads and automatically deleted when needed. 🗑️✨
-
-```markdown
 movie/
 │
-├── Backend/                          
+├── Backend/
 │   ├── config/
-│   │   └── db.js                     
-│   │
+│   │   └── db.js
 │   ├── controllers/
-│   │   └── movieController.js        
-│   │
+│   │   └── movieController.js
 │   ├── middleware/
-│   │   └── upload.js                 
-│   │
+│   │   └── upload.js
 │   ├── models/
-│   │   └── Movie.js                 
-│   │
+│   │   └── Movie.js
 │   ├── routes/
-│   │   └── movieroutes.js         
-│   │
-│   ├── uploads/                      
-│   ├── node_modules/
-│   ├── server.js                     
-│   ├── .env                          
-│   ├── package.json
-│   └── package-lock.json
+│   │   └── movieroutes.js
+│   ├── uploads/
+│   ├── server.js
+│   ├── .env
+│   └── package.json
 │
-│
-├── Frontend/                         🎨 Frontend (React + Vite)
+├── Frontend/
 │   ├── public/
-│   │   └── index.html                🏠 Main HTML file
-│   │
+│   │   └── index.html
 │   ├── src/
-│   │   ├── components/               🧩 Reusable Components
+│   │   ├── components/
 │   │   │   ├── AddMovie.jsx
 │   │   │   ├── EditMovie.jsx
 │   │   │   ├── MovieDetails.jsx
 │   │   │   └── MovieList.jsx
-│   │   │
-│   │   ├── App.jsx                   
-│   │   ├── App.css                   🎨 Global Styles
-│   │   └── main.jsx                  
-│   │
-│   ├── node_modules/
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.js               
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
+│   └── package.json
 │
-└── README.md                         
+└── README.md
 
-```
+---
 
-📝 API Endpoints
+## 📝 API Endpoints
 
-➕ POST /api/movies — Add new movie
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | /api/movies        | Add new movie |
+| GET    | /api/movies        | Get all movies |
+| GET    | /api/movies/:id    | Get single movie |
+| PUT    | /api/movies/:id    | Update movie |
+| DELETE | /api/movies/:id    | Delete movie + poster |
 
-📥 GET /api/movies — Get all movies
+---
 
-🔎 GET /api/movies/:id — Get single movie
+## 📸 Movie Poster Upload
 
-✏️ PUT /api/movies/:id — Update movie
+- Upload poster images using Multer
+- Images stored inside `/uploads`
+- Old poster automatically deleted when updating
+- Poster removed when movie is deleted
 
-❌ DELETE /api/movies/:id — Delete movie + poster
+---
 
-video:https://drive.google.com/file/d/1m4MiZZCqsLYsxv0mRo9ihsBYSarClzbc/view?usp=sharing
+## 🛠️ Installation Guide
+
+### 1️⃣ Clone Repository
+
+git clone https://github.com/your-username/movie-management-system.git  
+cd movie-management-system  
+
+---
+
+### 2️⃣ Backend Setup
+
+cd Backend  
+npm install  
+
+Create `.env` file inside Backend folder:
+
+PORT=5000  
+MONGO_URI=your_mongodb_connection_string  
+
+Start Backend Server:
+
+npm start  
+
+Server runs on:  
+http://localhost:5000  
+
+---
+
+### 3️⃣ Frontend Setup
+
+cd Frontend  
+npm install  
+npm run dev  
+
+Frontend runs on:  
+http://localhost:5173  
+
+---
+
+## 🛡️ Environment Variables
+
+| Variable   | Description |
+|------------|------------|
+| PORT       | Server Port |
+| MONGO_URI  | MongoDB Connection String |
+
+---
+
+## 💡 Future Improvements
+
+- 🔐 Admin Authentication (JWT)
+- ⭐ Movie Rating System
+- 🎬 Genre Filter
+- 📊 Pagination
+- 🌐 Deployment (Render / Vercel)
+
+---
+
+## 👩‍💻 Author
+
+**Roshni Bhuva**  
+Full-Stack Developer  
+
+---
