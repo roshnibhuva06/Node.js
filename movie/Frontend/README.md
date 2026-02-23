@@ -124,26 +124,18 @@ movie/
 ---
 
 ### 2️⃣ Backend Setup
-
+```
 cd Backend  
 npm install  
-
-npm start  
-
-Server runs on:  
-http://localhost:5000  
+```
 
 ---
 
 ### 3️⃣ Frontend Setup
-
+```
 cd Frontend  
-npm install  
-npm run dev  
-
-Frontend runs on:  
-http://localhost:5173  
-
+npm install
+``` 
 ---
 
 ## 🛡️ Environment Variables
