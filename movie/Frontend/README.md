@@ -64,7 +64,7 @@ Admins can:
 ---
 
 ## 📂 Project Structure
-
+```
 movie/
 │
 ├── Backend/
@@ -99,6 +99,7 @@ movie/
 │
 └── README.md
 
+```
 ---
 
 ## 📝 API Endpoints
