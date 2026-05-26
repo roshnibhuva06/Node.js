@@ -237,9 +237,6 @@ If you like this project, give it a ⭐ on GitHub.
 
 ---
 
-
----
-
 <div align="center">
 
 ## 🍿 “Movies touch our hearts and awaken our vision.” 🎬
