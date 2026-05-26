@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![Movie Banner](https://img.shields.io/badge/FullStack-Movie%20Management-red?style=for-the-badge)
-
 ![React](https://img.shields.io/badge/Frontend-React.js-blue?style=flat-square)
 ![Node](https://img.shields.io/badge/Backend-Node.js-green?style=flat-square)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen?style=flat-square)
