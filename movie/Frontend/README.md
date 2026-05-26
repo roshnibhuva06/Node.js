@@ -8,7 +8,6 @@
 ![Node](https://img.shields.io/badge/Backend-Node.js-green?style=flat-square)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-darkgreen?style=flat-square)
 ![Express](https://img.shields.io/badge/Server-Express.js-lightgrey?style=flat-square)
-![Multer](https://img.shields.io/badge/FileUpload-Multer-orange?style=flat-square)
 
 ✨ A complete **Full-Stack Movie Management Application** built with modern web technologies where users can easily **add, update, delete, search, and manage movies** along with movie poster uploads.
 
